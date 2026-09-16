@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nouvelles du Pays — Actualités de Côte d’Ivoire</title>
+<meta name="description" content="Nouvelles du Pays : actualités de Côte d’Ivoire, d’Afrique, sport et économie.">
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#171717}
+header{background:#111;color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-size:25px;font-weight:800}.logo span{color:#f5c400}
+nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{padding:34px 5%;background:linear-gradient(135deg,#171717,#343434);color:#fff}
+.hero h1{font-size:38px;margin:0 0 10px}.hero p{max-width:700px;color:#ddd}
+.ad{margin:22px auto;max-width:1100px;min-height:90px;background:#fff;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;color:#888;font-size:13px}
+.container{max-width:1100px;margin:auto;padding:0 18px}
+.toolbar{display:flex;gap:10px;margin:20px 0;flex-wrap:wrap}
+button,.search{border:0;border-radius:7px;padding:11px 15px;background:#111;color:#fff;cursor:pointer}
+.search{background:#fff;color:#333;border:1px solid #ddd;flex:1;min-width:200px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px #00000010}
+.card .pic{height:150px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#777}
+.card .content{padding:16px}.tag{font-size:11px;font-weight:bold;color:#9a7800}.card h2{font-size:19px;margin:7px 0}.card p{color:#666;font-size:14px;line-height:1.5}
+footer{margin-top:45px;background:#111;color:#ccc;text-align:center;padding:30px}
+@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}header{flex-direction:column;align-items:flex-start}nav a{margin:0 12px 0 0}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">NOUVELLES <span>DU PAYS</span></div>
+  <nav>
+    <a href="#" onclick="filterNews('Tous')">Accueil</a>
+    <a href="#" onclick="filterNews('Côte d’Ivoire')">Côte d’Ivoire</a>
+    <a href="#" onclick="filterNews('Afrique')">Afrique</a>
+    <a href="#" onclick="filterNews('Sport')">Sport</a>
+  </nav>
+</header>
+<section class="hero"><div class="container">
+<h1>Nouvelles du Pays</h1>
+<p>Les principales informations de Côte d’Ivoire, d’Afrique, du sport et de l’économie.</p>
+</div></section>
+<div class="ad">ESPACE PUBLICITAIRE — ton code publicitaire sera placé ici</div>
+<main class="container">
+<div class="toolbar">
+<input class="search" id="search" placeholder="Rechercher une actualité..." oninput="render()">
+<button onclick="filterNews('Tous')">Toutes</button>
+<button onclick="filterNews('Économie')">Économie</button>
+</div>
+<h2>À la une</h2><div id="news" class="grid"></div>
+<div class="ad">ESPACE PUBLICITAIRE — ton code publicitaire sera placé ici</div>
+</main>
+<footer><strong>NOUVELLES DU PAYS</strong><br><br>© 2026 — Site d’actualités.</footer>
+<script>
+const articles=[
+{cat:"Côte d’Ivoire",title:"Les principales informations du jour en Côte d’Ivoire",text:"Ajoute ici ton article et ses sources."},
+{cat:"Afrique",title:"L’actualité africaine à suivre aujourd’hui",text:"Ajoute ici ton article et ses sources."},
+{cat:"Sport",title:"Toute l’actualité sportive",text:"Résultats, analyses et informations sportives."},
+{cat:"Économie",title:"Économie : les informations à retenir",text:"Ajoute ici les informations économiques vérifiées."},
+{cat:"Côte d’Ivoire",title:"Les événements à suivre cette semaine",text:"Présente ici les événements et informations locales."},
+{cat:"Afrique",title:"Les nouvelles qui font l’actualité en Afrique",text:"Ajoute ici ton article et ses sources."}];
+let current="Tous";
+function filterNews(cat){current=cat;render()}
+function render(){const q=document.getElementById("search").value.toLowerCase();
+const list=articles.filter(a=>(current==="Tous"||a.cat===current)&&(a.title.toLowerCase().includes(q)||a.text.toLowerCase().includes(q)));
+document.getElementById("news").innerHTML=list.map(a=>`<article class="card"><div class="pic">PHOTO DE L’ARTICLE</div><div class="content"><div class="tag">${a.cat}</div><h2>${a.title}</h2><p>${a.text}</p></div></article>`).join("")}
+render();
+</script>
+</body></html>
