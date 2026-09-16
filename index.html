@@ -3,67 +3,561 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>Nouvelles du Pays — Actualités de Côte d’Ivoire</title>
+
 <meta name="description" content="Nouvelles du Pays : actualités de Côte d’Ivoire, d’Afrique, sport et économie.">
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#171717}
-header{background:#111;color:#fff;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.logo{font-size:25px;font-weight:800}.logo span{color:#f5c400}
-nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:14px}
-.hero{padding:34px 5%;background:linear-gradient(135deg,#171717,#343434);color:#fff}
-.hero h1{font-size:38px;margin:0 0 10px}.hero p{max-width:700px;color:#ddd}
-.ad{margin:22px auto;max-width:1100px;min-height:90px;background:#fff;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;color:#888;font-size:13px}
-.container{max-width:1100px;margin:auto;padding:0 18px}
-.toolbar{display:flex;gap:10px;margin:20px 0;flex-wrap:wrap}
-button,.search{border:0;border-radius:7px;padding:11px 15px;background:#111;color:#fff;cursor:pointer}
-.search{background:#fff;color:#333;border:1px solid #ddd;flex:1;min-width:200px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px #00000010}
-.card .pic{height:150px;background:#ddd;display:flex;align-items:center;justify-content:center;color:#777}
-.card .content{padding:16px}.tag{font-size:11px;font-weight:bold;color:#9a7800}.card h2{font-size:19px;margin:7px 0}.card p{color:#666;font-size:14px;line-height:1.5}
-footer{margin-top:45px;background:#111;color:#ccc;text-align:center;padding:30px}
-@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}header{flex-direction:column;align-items:flex-start}nav a{margin:0 12px 0 0}}
-@media(max-width:520px){.grid{grid-template-columns:1fr}.hero h1{font-size:30px}}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f4f5f7;
+  color:#171717;
+}
+
+header{
+  background:#111;
+  color:#fff;
+  padding:18px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:800;
+}
+
+.logo span{
+  color:#f5c400;
+}
+
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-size:15px;
+}
+
+nav a:hover{
+  color:#f5c400;
+}
+
+.hero{
+  padding:50px 5%;
+  background:linear-gradient(135deg,#171717,#343434);
+  color:#fff;
+}
+
+.hero h1{
+  font-size:40px;
+  margin:0 0 12px;
+}
+
+.hero p{
+  max-width:700px;
+  color:#ddd;
+  font-size:17px;
+  line-height:1.6;
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:0 18px;
+}
+
+.ad{
+  margin:25px auto;
+  max-width:1100px;
+  min-height:90px;
+  background:#fff;
+  border:1px dashed #aaa;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#888;
+  font-size:13px;
+  text-align:center;
+  padding:15px;
+}
+
+.toolbar{
+  display:flex;
+  gap:10px;
+  margin:25px 0;
+  flex-wrap:wrap;
+}
+
+button,
+.search{
+  border:0;
+  border-radius:8px;
+  padding:13px 16px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+button{
+  background:#111;
+  color:#fff;
+}
+
+button:hover{
+  background:#333;
+}
+
+.search{
+  background:#fff;
+  color:#333;
+  border:1px solid #ddd;
+  flex:1;
+  min-width:220px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-bottom:30px;
+}
+
+.card{
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+.card .content{
+  padding:17px;
+}
+
+.tag{
+  font-size:12px;
+  font-weight:bold;
+  color:#9a7800;
+  text-transform:uppercase;
+}
+
+.card h2{
+  font-size:19px;
+  margin:8px 0;
+  line-height:1.35;
+}
+
+.card p{
+  color:#666;
+  font-size:14px;
+  line-height:1.6;
+}
+
+.read{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 12px;
+  background:#111;
+  color:#fff;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:13px;
+}
+
+.section{
+  margin:45px 0;
+}
+
+.section h2{
+  font-size:28px;
+}
+
+.info{
+  background:#fff;
+  padding:22px;
+  border-radius:10px;
+  line-height:1.7;
+}
+
+footer{
+  margin-top:50px;
+  background:#111;
+  color:#ccc;
+  text-align:center;
+  padding:35px 20px;
+}
+
+footer a{
+  color:#ccc;
+  text-decoration:none;
+  margin:0 8px;
+}
+
+footer a:hover{
+  color:#f5c400;
+}
+
+@media(max-width:800px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+}
+
+@media(max-width:520px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:35px 5%;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  nav{
+    gap:12px;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <header>
-  <div class="logo">NOUVELLES <span>DU PAYS</span></div>
+
+  <div class="logo">
+    NOUVELLES <span>DU PAYS</span>
+  </div>
+
   <nav>
     <a href="#" onclick="filterNews('Tous')">Accueil</a>
     <a href="#" onclick="filterNews('Côte d’Ivoire')">Côte d’Ivoire</a>
     <a href="#" onclick="filterNews('Afrique')">Afrique</a>
     <a href="#" onclick="filterNews('Sport')">Sport</a>
+    <a href="#" onclick="filterNews('Économie')">Économie</a>
   </nav>
+
 </header>
-<section class="hero"><div class="container">
-<h1>Nouvelles du Pays</h1>
-<p>Les principales informations de Côte d’Ivoire, d’Afrique, du sport et de l’économie.</p>
-</div></section>
-<div class="ad">ESPACE PUBLICITAIRE — ton code publicitaire sera placé ici</div>
-<main class="container">
-<div class="toolbar">
-<input class="search" id="search" placeholder="Rechercher une actualité..." oninput="render()">
-<button onclick="filterNews('Tous')">Toutes</button>
-<button onclick="filterNews('Économie')">Économie</button>
+
+<section class="hero">
+  <div class="container">
+
+    <h1>Nouvelles du Pays</h1>
+
+    <p>
+      Les principales informations de Côte d’Ivoire,
+      d’Afrique, du sport et de l’économie.
+    </p>
+
+  </div>
+</section>
+
+<!-- ESPACE PUBLICITAIRE 1 -->
+<div class="ad">
+  ESPACE PUBLICITAIRE
+  <br>
+  Votre publicité pourra être placée ici.
 </div>
-<h2>À la une</h2><div id="news" class="grid"></div>
-<div class="ad">ESPACE PUBLICITAIRE — ton code publicitaire sera placé ici</div>
+
+<main class="container">
+
+  <div class="toolbar">
+
+    <input
+      class="search"
+      id="search"
+      placeholder="Rechercher une actualité..."
+      oninput="render()"
+    >
+
+    <button onclick="filterNews('Tous')">
+      Toutes
+    </button>
+
+    <button onclick="filterNews('Côte d’Ivoire')">
+      Côte d’Ivoire
+    </button>
+
+    <button onclick="filterNews('Afrique')">
+      Afrique
+    </button>
+
+    <button onclick="filterNews('Sport')">
+      Sport
+    </button>
+
+    <button onclick="filterNews('Économie')">
+      Économie
+    </button>
+
+  </div>
+
+  <section class="section">
+
+    <h2>À la une</h2>
+
+    <div id="news" class="grid"></div>
+
+  </section>
+
+  <!-- ESPACE PUBLICITAIRE 2 -->
+  <div class="ad">
+    ESPACE PUBLICITAIRE
+    <br>
+    Votre publicité pourra être placée ici.
+  </div>
+
+  <section class="section">
+
+    <h2>À propos</h2>
+
+    <div class="info">
+
+      <p>
+        <strong>Nouvelles du Pays</strong> est un site
+        d’information consacré à l’actualité de Côte d’Ivoire,
+        d’Afrique, du sport et de l’économie.
+      </p>
+
+      <p>
+        Notre objectif est de proposer aux lecteurs des
+        informations claires, accessibles et régulièrement mises
+        à jour.
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Contact</h2>
+
+    <div class="info">
+
+      <p>
+        Pour toute question, suggestion ou proposition de
+        collaboration, vous pouvez nous contacter.
+      </p>
+
+      <p>
+        📧 Email :
+        <strong>contact@nouvellesdupays.com</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+  <section class="section">
+
+    <h2>Politique de confidentialité</h2>
+
+    <div class="info">
+
+      <p>
+        Nous respectons la confidentialité de nos visiteurs.
+        Les données éventuellement collectées sont utilisées
+        uniquement pour assurer le fonctionnement et
+        l’amélioration du site.
+      </p>
+
+      <p>
+        Des services publicitaires ou statistiques peuvent être
+        utilisés sur ce site. Leurs propres politiques de
+        confidentialité peuvent s’appliquer.
+      </p>
+
+    </div>
+
+  </section>
+
 </main>
-<footer><strong>NOUVELLES DU PAYS</strong><br><br>© 2026 — Site d’actualités.</footer>
+
+<footer>
+
+  <strong>NOUVELLES DU PAYS</strong>
+
+  <br><br>
+
+  <a href="#">Accueil</a>
+  <a href="#">À propos</a>
+  <a href="#">Contact</a>
+  <a href="#">Confidentialité</a>
+
+  <br><br>
+
+  © 2026 — Nouvelles du Pays
+
+</footer>
+
 <script>
-const articles=[
-{cat:"Côte d’Ivoire",title:"Les principales informations du jour en Côte d’Ivoire",text:"Ajoute ici ton article et ses sources."},
-{cat:"Afrique",title:"L’actualité africaine à suivre aujourd’hui",text:"Ajoute ici ton article et ses sources."},
-{cat:"Sport",title:"Toute l’actualité sportive",text:"Résultats, analyses et informations sportives."},
-{cat:"Économie",title:"Économie : les informations à retenir",text:"Ajoute ici les informations économiques vérifiées."},
-{cat:"Côte d’Ivoire",title:"Les événements à suivre cette semaine",text:"Présente ici les événements et informations locales."},
-{cat:"Afrique",title:"Les nouvelles qui font l’actualité en Afrique",text:"Ajoute ici ton article et ses sources."}];
-let current="Tous";
-function filterNews(cat){current=cat;render()}
-function render(){const q=document.getElementById("search").value.toLowerCase();
-const list=articles.filter(a=>(current==="Tous"||a.cat===current)&&(a.title.toLowerCase().includes(q)||a.text.toLowerCase().includes(q)));
-document.getElementById("news").innerHTML=list.map(a=>`<article class="card"><div class="pic">PHOTO DE L’ARTICLE</div><div class="content"><div class="tag">${a.cat}</div><h2>${a.title}</h2><p>${a.text}</p></div></article>`).join("")}
+
+const articles = [
+
+  {
+    cat:"Côte d’Ivoire",
+    title:"Les principales informations du jour en Côte d’Ivoire",
+    text:"Retrouvez les informations importantes et les événements qui font l’actualité en Côte d’Ivoire.",
+    image:"https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=900&q=80"
+  },
+
+  {
+    cat:"Afrique",
+    title:"L’actualité africaine à suivre aujourd’hui",
+    text:"Découvrez les principales informations et événements qui font l’actualité sur le continent africain.",
+    image:"https://images.unsplash.com/photo-1523805009345-7448845a9e53?auto=format&fit=crop&w=900&q=80"
+  },
+
+  {
+    cat:"Sport",
+    title:"Toute l’actualité sportive",
+    text:"Résultats, compétitions, joueurs et informations sportives à découvrir.",
+    image:"https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=900&q=80"
+  },
+
+  {
+    cat:"Économie",
+    title:"Économie : les informations à retenir",
+    text:"Les principales informations économiques et financières à suivre.",
+    image:"https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80"
+  },
+
+  {
+    cat:"Côte d’Ivoire",
+    title:"Les événements à suivre cette semaine",
+    text:"Découvrez les événements et informations locales à suivre cette semaine.",
+    image:"https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=900&q=80"
+  },
+
+  {
+    cat:"Afrique",
+    title:"Les nouvelles qui font l’actualité en Afrique",
+    text:"Un aperçu des sujets importants à suivre sur le continent.",
+    image:"https://images.unsplash.com/photo-1539650116574-75c0c6d73f6e?auto=format&fit=crop&w=900&q=80"
+  }
+
+];
+
+let current = "Tous";
+
+function filterNews(cat){
+
+  current = cat;
+
+  render();
+
+  window.scrollTo({
+    top:350,
+    behavior:"smooth"
+  });
+
+}
+
+function render(){
+
+  const search =
+    document.getElementById("search").value.toLowerCase();
+
+  const list = articles.filter(article => {
+
+    const categoryOK =
+      current === "Tous" ||
+      article.cat === current;
+
+    const searchOK =
+      article.title.toLowerCase().includes(search) ||
+      article.text.toLowerCase().includes(search) ||
+      article.cat.toLowerCase().includes(search);
+
+    return categoryOK && searchOK;
+
+  });
+
+  const news = document.getElementById("news");
+
+  if(list.length === 0){
+
+    news.innerHTML =
+      "<p>Aucune actualité trouvée.</p>";
+
+    return;
+
+  }
+
+  news.innerHTML = list.map(article => `
+
+    <article class="card">
+
+      <img
+        src="${article.image}"
+        alt="${article.title}"
+        loading="lazy"
+      >
+
+      <div class="content">
+
+        <div class="tag">
+          ${article.cat}
+        </div>
+
+        <h2>
+          ${article.title}
+        </h2>
+
+        <p>
+          ${article.text}
+        </p>
+
+        <a href="#" class="read">
+          Lire l’article
+        </a>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+}
+
 render();
+
 </script>
-</body></html>
+
+</body>
+  </html>
